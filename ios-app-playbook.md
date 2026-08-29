@@ -3,7 +3,9 @@
 A complete reference for turning a web widget into a signed, TestFlight-tested,
 App Store–submitted iOS app using Capacitor and Codemagic CI/CD — **without
 owning a Mac**. Companion to the Android Playbook; written from the
-FunWithPuzzles Daily Challenge app build.
+FunWithPuzzles.com Daily Challenge app build.
+The working widget can be found at 
+https://www.funwithpuzzles.com/p/daily-challenge.html
 
 ---
 
