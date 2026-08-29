@@ -1,5 +1,5 @@
 # Android App Playbook: Capacitor-Wrapped Web Widget → Google Play
-
+---
 A complete reference for turning a web widget into a signed, published Android
 app using Capacitor, and keeping it updated over time. Written from the
 FunWithPuzzles.com Daily Challenge app build — reuse this for future projects.
