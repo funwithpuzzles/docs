@@ -2,8 +2,9 @@
 
 A complete reference for turning a web widget into a signed, published Android
 app using Capacitor, and keeping it updated over time. Written from the
-FunWithPuzzles Daily Challenge app build — reuse this for future projects.
-
+FunWithPuzzles.com Daily Challenge app build — reuse this for future projects.
+The working widget can be found at
+https://www.funwithpuzzles.com/p/daily-challenge.html
 ---
 
 ## 1. What This Approach Is
