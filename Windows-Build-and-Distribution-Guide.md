@@ -5,9 +5,9 @@ This guide explains how to build and distribute **Daily Puzzle Challenges Widget
 - Web browsers
 - Windows portable distribution
 - Microsoft Store
--The working js widget can be found at
+- The working js widget can be found at
    https://www.funwithpuzzles.com/p/daily-challenge.html
--The Windows App can be download from Microsoft App Store as below
+- The Windows App can be download from Microsoft App Store as below
    https://apps.microsoft.com/detail/9nrvh669bl1r  
 ---
 
