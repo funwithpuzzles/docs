@@ -5,6 +5,8 @@ app using Capacitor, and keeping it updated over time. Written from the
 FunWithPuzzles.com Daily Challenge app build — reuse this for future projects.
 The working widget can be found at
 https://www.funwithpuzzles.com/p/daily-challenge.html
+and Google Playstore App can be downloaded from
+https://play.google.com/store/apps/details?id=com.funwithpuzzles.dailychallenges
 ---
 
 ## 1. What This Approach Is
