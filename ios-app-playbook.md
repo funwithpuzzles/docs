@@ -209,7 +209,6 @@ signing and requires redoing §9.1–9.3 from scratch.
 
 ## 10. The Complete `codemagic.yaml`
 
-```yaml
 workflows:
   ios-workflow:
     name: iOS Workflow
@@ -217,17 +216,22 @@ workflows:
     instance_type: mac_mini_m2
 
     integrations:
-      app_store_connect: AppStoreConnect   # exact name from §8.2
+      app_store_connect: AppStoreConnect
 
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.yourcompany.yourapp
+        bundle_identifier: com.funwithpuzzles.dailychallenges
       vars:
-        BUNDLE_ID: "com.yourcompany.yourapp"
-        XCODE_PROJECT: "ios/App/App.xcodeproj"   # NOT .xcworkspace — see §5
+        BUNDLE_ID: "com.funwithpuzzles.dailychallenges"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"
         XCODE_SCHEME: "App"
-      node: 22   # Capacitor 8 CLI requires Node >=22
+        # Bump this manually whenever you want THIS build to become a new
+        # public App Store release (not needed for every TestFlight build —
+        # only when the previous marketing version has already been
+        # approved/published and you're ready for the next one).
+        IOS_MARKETING_VERSION: "1.0.1"
+      node: 22
       xcode: latest
 
     scripts:
@@ -235,7 +239,7 @@ workflows:
         script: npm install
 
       - name: Build AdMob bundle
-        script: npm run build:admob   # skip/adjust if you don't use this step
+        script: npm run build:admob
 
       - name: Capacitor sync (copies www/ into the native iOS project)
         script: npx cap sync ios
@@ -244,9 +248,11 @@ workflows:
         script: |
           xcode-project use-profiles --profile distribution_profile.mobileprovision
 
-      - name: Increment build number
+      - name: Set marketing version and increment build number
         script: |
           cd $CM_BUILD_DIR/ios/App
+          echo "Setting marketing version to $IOS_MARKETING_VERSION"
+          agvtool new-marketing-version $IOS_MARKETING_VERSION
           echo "Using Codemagic's own build counter: $PROJECT_BUILD_NUMBER"
           agvtool new-version -all $PROJECT_BUILD_NUMBER
 
@@ -265,7 +271,6 @@ workflows:
       app_store_connect:
         auth: integration
         submit_to_testflight: true
-```
 
 ### Key design decisions baked into this file (and why)
 
